@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>毕业前我还差什么 · 课程规划 Agent</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-mark">课</div>
+        <div>
+            毕业前我还差什么
+            <small>课程规划 Agent · 30 页 PDF 变成一张可执行的课表</small>
+        </div>
+    </div>
+    <div class="topbar-right">
+        <span class="pill" id="engine-pill">…</span>
+        <span id="user-chip">未登录</span>
+    </div>
+</header>
+
+<nav class="tabs">
+    <button data-view="overview" class="active">概览</button>
+    <button data-view="plan">排课方案</button>
+    <button data-view="qa">智能问答</button>
+</nav>
+
+<main>
+    <!-- 概览 -->
+    <section class="view" id="view-overview">
+        <div class="card hero">
+            <div>
+                <h1 id="major-title">正在加载…</h1>
+                <div class="sub" id="program-sub"></div>
+                <div style="margin-top:18px" class="big">
+                    <span id="remain-credits">–</span><span> 学分未完成</span>
+                </div>
+                <div class="sub" id="remain-courses"></div>
+            </div>
+            <div class="ring">
+                <svg width="132" height="132" viewBox="0 0 132 132">
+                    <circle cx="66" cy="66" r="56" fill="none" stroke="#eef2f7" stroke-width="12"/>
+                    <circle id="ring-progress" cx="66" cy="66" r="56" fill="none" stroke="url(#g)" stroke-width="12"
+                            stroke-linecap="round" stroke-dasharray="351.8" stroke-dashoffset="351.8"/>
+                    <defs>
+                        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#4f46e5"/>
+                            <stop offset="100%" stop-color="#7c3aed"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="label" id="ring-label">0%</div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>模块学分</h2>
+            <span class="hint">灰色为已修，紫色为目标</span>
+        </div>
+        <div class="modules" id="modules"></div>
+
+        <div class="grid-2" style="margin-top:22px">
+            <div class="card">
+                <div class="section-title" style="margin-top:0">
+                    <h2>换一份培养方案</h2>
+                </div>
+                <div class="drop" id="drop">
+                    把培养方案 PDF / TXT 拖到这里，或 <strong>点击选择文件</strong>
+                    <div style="font-size:12px;margin-top:6px">支持 PDF、TXT、MD，最大 20MB</div>
+                    <input type="file" id="file" hidden accept=".pdf,.txt,.md,.csv">
+                </div>
+                <div class="progress" id="upload-progress">
+                    <div class="track"><i id="upload-bar"></i></div>
+                    <div class="stage"><span id="upload-stage">准备中</span><span id="upload-pct">0%</span></div>
+                </div>
+                <div id="upload-warnings"></div>
+            </div>
+            <div class="card">
+                <div class="section-title" style="margin-top:0">
+                    <h2>成绩单</h2>
+                </div>
+                <div class="drop" id="transcript-drop">
+                    上传成绩单（TXT / PDF），用于计算还差哪些课
+                    <div style="font-size:12px;margin-top:6px">每行：课程代码 课程名称 学分 成绩</div>
+                    <input type="file" id="transcript-file" hidden accept=".pdf,.txt,.md,.csv">
+                </div>
+                <div class="progress" id="transcript-progress">
+                    <div class="track"><i id="transcript-bar"></i></div>
+                    <div class="stage"><span id="transcript-stage">解析中</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>课程清单</h2>
+            <span class="hint" id="course-count"></span>
+        </div>
+        <div class="card" style="padding:8px 12px;max-height:460px;overflow:auto">
+            <table>
+                <thead>
+                <tr><th>代码</th><th>课程</th><th>学分</th><th>模块</th><th>类型</th><th>开课学期</th><th>先修</th></tr>
+                </thead>
+                <tbody id="course-body"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 方案 -->
+    <section class="view" id="view-plan" hidden>
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+                <div>
+                    <h2 style="font-size:18px">排课方案</h2>
+                    <div class="hint" style="color:var(--ink-3);font-size:13px">
+                        先修关系 + 模块学分下限 + 每学期学分上限，回溯求解生成多套可行解
+                    </div>
+                </div>
+                <button class="btn primary" id="solve-btn">生成 / 刷新方案</button>
+            </div>
+            <div class="progress" id="solve-progress">
+                <div class="track"><i id="solve-bar"></i></div>
+                <div class="stage"><span id="solve-stage">排队中</span><span id="solve-pct">0%</span></div>
+            </div>
+        </div>
+
+        <div class="section-title"><h2>可选方案</h2><span class="hint">按「最快毕业 → 风险最低」排序</span></div>
+        <div class="plans" id="plan-chips"></div>
+        <div class="card" id="plan-detail">
+            <div class="empty">还没有方案。点右上角「生成 / 刷新方案」。</div>
+        </div>
+    </section>
+
+    <!-- 问答 -->
+    <section class="view" id="view-qa" hidden>
+        <div class="card chat">
+            <div class="chat-log" id="chat-log">
+                <div class="msg bot">我是你的课程规划助教。可以问我：「我还差哪些必修课？」「下学期怎么排最稳？」「操作系统需要什么先修？」</div>
+            </div>
+            <div class="chat-input">
+                <input id="chat-input" placeholder="问点什么…（Enter 发送）" autocomplete="off">
+                <button class="btn primary" id="chat-send">发送</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>

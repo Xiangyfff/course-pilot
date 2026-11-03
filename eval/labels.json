@@ -1,0 +1,3134 @@
+[
+  {
+    "id": "table-full",
+    "file": "eval/programs/table-full.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": true,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "table-no-total",
+    "file": "eval/programs/table-no-total.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": null,
+    "modulesStated": true,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "table-inline-prereq",
+    "file": "eval/programs/table-inline-prereq.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": true,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "prose-full",
+    "file": "eval/programs/prose-full.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": false,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "prose-no-total",
+    "file": "eval/programs/prose-no-total.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": null,
+    "modulesStated": false,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "prose-inline-prereq",
+    "file": "eval/programs/prose-inline-prereq.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": false,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "sections-full",
+    "file": "eval/programs/sections-full.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": true,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "sections-no-total",
+    "file": "eval/programs/sections-no-total.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": null,
+    "modulesStated": true,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "sections-inline-prereq",
+    "file": "eval/programs/sections-inline-prereq.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": true,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "noisy-full",
+    "file": "eval/programs/noisy-full.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": false,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "noisy-no-total",
+    "file": "eval/programs/noisy-no-total.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": null,
+    "modulesStated": false,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  },
+  {
+    "id": "noisy-inline-prereq",
+    "file": "eval/programs/noisy-inline-prereq.txt",
+    "school": "示例大学",
+    "major": "软件工程",
+    "totalCredits": 87,
+    "modulesStated": false,
+    "courses": [
+      {
+        "code": "EN101",
+        "name": "大学英语A",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "EN102",
+        "name": "大学英语B",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": [
+          "EN101"
+        ]
+      },
+      {
+        "code": "PE101",
+        "name": "体育(一)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PE102",
+        "name": "体育(二)",
+        "credits": 1,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL101",
+        "name": "思想道德与法治",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "PL102",
+        "name": "中国近现代史纲要",
+        "credits": 3,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "GE101",
+        "name": "创新创业基础",
+        "credits": 2,
+        "module": "GENERAL",
+        "prereqs": []
+      },
+      {
+        "code": "MA101",
+        "name": "高等数学A(上)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": []
+      },
+      {
+        "code": "MA102",
+        "name": "高等数学A(下)",
+        "credits": 4,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA201",
+        "name": "线性代数",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "MA202",
+        "name": "概率论与数理统计",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA102"
+        ]
+      },
+      {
+        "code": "PH101",
+        "name": "大学物理(上)",
+        "credits": 3,
+        "module": "MATH",
+        "prereqs": [
+          "MA101"
+        ]
+      },
+      {
+        "code": "CS101",
+        "name": "程序设计基础",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": []
+      },
+      {
+        "code": "CS102",
+        "name": "面向对象程序设计",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS201",
+        "name": "数据结构",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS102"
+        ]
+      },
+      {
+        "code": "CS202",
+        "name": "计算机组成原理",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "CS203",
+        "name": "操作系统",
+        "credits": 4,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS204",
+        "name": "计算机网络",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS205",
+        "name": "数据库系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS301",
+        "name": "软件工程",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS302",
+        "name": "编译原理",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS201",
+          "MA201"
+        ]
+      },
+      {
+        "code": "CS303",
+        "name": "分布式系统",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "CS203",
+          "CS204"
+        ]
+      },
+      {
+        "code": "CS304",
+        "name": "人工智能导论",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "CS305",
+        "name": "机器学习",
+        "credits": 3,
+        "module": "MAJOR",
+        "prereqs": [
+          "MA202",
+          "CS201"
+        ]
+      },
+      {
+        "code": "PR101",
+        "name": "程序设计课程设计",
+        "credits": 2,
+        "module": "PRACTICE",
+        "prereqs": [
+          "CS101"
+        ]
+      },
+      {
+        "code": "PR201",
+        "name": "生产实习",
+        "credits": 4,
+        "module": "PRACTICE",
+        "prereqs": []
+      },
+      {
+        "code": "PR202",
+        "name": "毕业设计",
+        "credits": 8,
+        "module": "PRACTICE",
+        "prereqs": [
+          "PR101"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "code": "GENERAL",
+        "name": "通识教育",
+        "min": 24
+      },
+      {
+        "code": "MATH",
+        "name": "数学与自然科学",
+        "min": 17
+      },
+      {
+        "code": "MAJOR",
+        "name": "专业核心",
+        "min": 40
+      },
+      {
+        "code": "PRACTICE",
+        "name": "实践环节",
+        "min": 14
+      }
+    ]
+  }
+]

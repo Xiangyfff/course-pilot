@@ -1,0 +1,31 @@
+示例大学 软件工程专业 2023 级培养方案
+
+毕业总学分：87 学分
+课程代码 课程名称 学分 模块 先修
+EN101 大学英语A 3 GENERAL
+EN102 大学英语B（先修 EN101） 3 GENERAL
+PE101 体育(一) 1 GENERAL
+PE102 体育(二) 1 GENERAL
+PL101 思想道德与法治 3 GENERAL
+PL102 中国近现代史纲要 3 GENERAL
+GE101 创新创业基础 2 GENERAL
+MA101 高等数学A(上) 4 MATH
+MA102 高等数学A(下)（先修 MA101） 4 MATH
+MA201 线性代数（先修 MA101） 3 MATH
+MA202 概率论与数理统计（先修 MA102） 3 MATH
+PH101 大学物理(上)（先修 MA101） 3 MATH
+CS101 程序设计基础 4 MAJOR
+CS102 面向对象程序设计（先修 CS101） 3 MAJOR
+CS201 数据结构（先修 CS102） 4 MAJOR
+CS202 计算机组成原理（先修 CS101） 4 MAJOR
+CS203 操作系统（先修 CS201） 4 MAJOR
+CS204 计算机网络（先修 CS201） 3 MAJOR
+CS205 数据库系统（先修 CS201） 3 MAJOR
+CS301 软件工程（先修 CS201） 3 MAJOR
+CS302 编译原理（先修 CS201,MA201） 3 MAJOR
+CS303 分布式系统（先修 CS203,CS204） 3 MAJOR
+CS304 人工智能导论（先修 MA202,CS201） 3 MAJOR
+CS305 机器学习（先修 MA202,CS201） 3 MAJOR
+PR101 程序设计课程设计（先修 CS101） 2 PRACTICE
+PR201 生产实习 4 PRACTICE
+PR202 毕业设计（先修 PR101） 8 PRACTICE

@@ -1,0 +1,67 @@
+server:
+  # 8080 被其他项目占用，这里用 18080
+  port: ${APP_PORT:18080}
+  address: ${APP_ADDRESS:127.0.0.1}
+  compression:
+    enabled: true
+
+spring:
+  # 本机跑时读根目录的 .env（有就生效，没有也不报错）；Docker 里由 compose 注入环境变量
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: course-planner
+  profiles:
+    default: dev
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  mvc:
+    async:
+      request-timeout: 180000
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: Asia/Shanghai
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+app:
+  auth:
+    jwt-secret: ${JWT_SECRET:dev-only-secret-please-change-in-prod-0123456789}
+    token-ttl-hours: 72
+  llm:
+    # mock: 不调用模型，走规则抽取 + 模板问答，零依赖可演示
+    # openai-compatible: 任何 OpenAI 兼容端点（OpenAI / DeepSeek / 通义 / Ollama）
+    provider: ${LLM_PROVIDER:mock}
+    base-url: ${LLM_BASE_URL:http://127.0.0.1:11434/v1}
+    api-key: ${LLM_API_KEY:}
+    model: ${LLM_MODEL:qwen2.5:7b}
+    timeout-seconds: 60
+    price-per-million-prompt-cents: 100
+    price-per-million-completion-cents: 300
+  job:
+    parse-pool-size: 4
+    solve-pool-size: 2
+    max-retry: 3
+    timeout-seconds: 300
+  solver:
+    semesters: 8
+    max-credits-per-term: 25
+    plan-count: 3
+    time-budget-ms: 1500
+  cache:
+    mode: ${CACHE_MODE:caffeine}
+    program-ttl-seconds: 600
+    solve-ttl-seconds: 1800
+  mq:
+    mode: ${MQ_MODE:local}
+    name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}
+    topic: course-planner-job
+
+logging:
+  level:
+    root: INFO
+    com.courseplanner: INFO

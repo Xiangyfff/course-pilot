@@ -1,0 +1,62 @@
+name: course-planner
+
+# 默认起 app（dev profile：H2 内存库 + 演示数据，零外部依赖）
+# 需要 MySQL：docker compose --profile mysql up --build
+services:
+  app:
+    build:
+      context: .
+      args:
+        MAVEN_IMAGE: ${MAVEN_IMAGE:-docker.m.daocloud.io/library/maven:3.9-eclipse-temurin-17}
+        JRE_IMAGE: ${JRE_IMAGE:-docker.m.daocloud.io/library/eclipse-temurin:17-jre}
+    ports:
+      # 只绑 loopback：这是本地演示，不对局域网开放
+      - "127.0.0.1:${APP_PORT:-18080}:8080"
+    environment:
+      APP_PORT: 8080
+      # 容器内必须监听所有网卡，宿主机侧靠上面的 loopback 映射兜底
+      APP_ADDRESS: 0.0.0.0
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+      JWT_SECRET: ${JWT_SECRET:-dev-only-secret-please-change-in-prod-0123456789}
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      LLM_BASE_URL: ${LLM_BASE_URL:-http://host.docker.internal:11434/v1}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-qwen2.5:7b}
+      CACHE_MODE: ${CACHE_MODE:-caffeine}
+      MQ_MODE: ${MQ_MODE:-local}
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-course_planner}
+      DB_USER: ${DB_USER:-planner}
+      DB_PASSWORD: ${DB_PASSWORD:-planner}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      mysql:
+        # required:false 让 dev profile（不启 mysql）也能正常 up
+        condition: service_healthy
+        required: false
+
+  mysql:
+    image: ${MYSQL_IMAGE:-docker.m.daocloud.io/library/mysql:8.0}
+    profiles: ["mysql"]
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-course_planner}
+      MYSQL_USER: ${DB_USER:-planner}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-planner}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+    ports:
+      - "127.0.0.1:${MYSQL_HOST_PORT:-3307}:3306"
+    volumes:
+      - planner_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  planner_mysql:

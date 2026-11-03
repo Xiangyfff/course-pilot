@@ -1,0 +1,9 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.env
+*.log
+.idea/
+.vscode/
+*.iml
+.DS_Store
+eval/pred-*.json
