@@ -9,6 +9,8 @@
 > 核心原则：**LLM 负责翻译，不负责决策。**
 > 排课交给可验证的算法——LLM 会编出根本不存在的课程，而且它的输出无法证明「无解」。
 
+**代码**：<https://github.com/Xiangyfff/course-pilot>　|　**测过的数字**：见[性能实测](#性能实测)与[抽取评测集](#抽取评测集)　|　**演示怎么讲**：见 [`docs/INTERVIEW.md`](docs/INTERVIEW.md)
+
 ---
 
 ## 界面
