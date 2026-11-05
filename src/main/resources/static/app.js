@@ -427,7 +427,7 @@ function wireTabs() {
     document.querySelectorAll('.tabs button').forEach(btn => {
         btn.addEventListener('click', () => activateTab(btn.dataset.view));
     });
-    // 支持 #plan / #qa 深链：演示时可以直接把某一页发给读者
+    // 支持 #plan / #qa 深链：可以直接把某一页的地址发给别人
     const initial = location.hash.replace('#', '');
     if (initial === 'plan' || initial === 'qa') {
         activateTab(initial);

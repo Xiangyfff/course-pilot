@@ -20,7 +20,7 @@
 
 把一份 30 页的培养方案 PDF，变成一张能照着排的课表。
 
-**代码**：<https://github.com/Xiangyfff/course-pilot>　|　**演示怎么讲**：[docs/INTERVIEW.md](docs/INTERVIEW.md)　|　**简历条目**：[docs/RESUME.md](docs/RESUME.md)
+**代码**：<https://github.com/Xiangyfff/course-pilot>
 
 </div>
 
@@ -250,7 +250,7 @@ course-pilot
 ├── src/test/java/                22 个单元测试
 ├── eval/                         抽取评测（造数据 / 跑 / 打分）
 ├── samples/                      示例文件、冒烟与压测脚本
-├── docs/                         演示文档、简历条目、截图
+├── docs/screenshots/             界面截图
 └── compose.yaml                  Docker Compose（app + mysql profile）
 ```
 
