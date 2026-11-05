@@ -7,3 +7,8 @@ target/
 *.iml
 .DS_Store
 eval/pred-*.json
+
+# 个人笔记，不进仓库
+docs/INTERVIEW.md
+docs/RESUME.md
+private-notes/
