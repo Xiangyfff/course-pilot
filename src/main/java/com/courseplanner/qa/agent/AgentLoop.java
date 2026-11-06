@@ -80,6 +80,7 @@ public class AgentLoop {
         String model = "unknown";
         String finalText = null;
         int invalidOutputs = 0;
+        String lastSignature = null;
 
         for (int round = 1; round <= maxSteps; round++) {
             String prompt = toolCatalog()
@@ -114,6 +115,14 @@ public class AgentLoop {
                 continue;
             }
             long started = System.currentTimeMillis();
+            String signature = toolName + "|" + (args == null ? "{}" : args.toString());
+            if (signature.equals(lastSignature)) {
+                // 模型在原地打转：同一工具同一参数再来一次，结果不会变，直接收束，别再烧 token。
+                observations.append("\n[系统] 你已经用相同参数调用过「").append(toolName)
+                        .append("」，结果不会变化，请基于已有信息直接作答。");
+                break;
+            }
+            lastSignature = signature;
             String observation;
             try {
                 observation = tool.execute(userId, programId, args).toString();

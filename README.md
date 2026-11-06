@@ -240,7 +240,7 @@ docker compose up --build        # http://127.0.0.1:18080
 ### 5. 验证
 
 ```bash
-./mvnw -B test                   # 26 个单元测试
+./mvnw -B test                   # 29 个单元测试
 bash samples/smoke.sh            # 13 步端到端，需要应用已在 18080 跑着
 node eval/run-eval.mjs http://127.0.0.1:18080 eval/pred-llm.json && node eval/score.mjs eval/pred-rule.json eval/pred-llm.json
 ```
@@ -311,7 +311,7 @@ course-pilot
 │   ├── qa/            检索 + 流式回答 + 工具循环（agent/）+ 记忆（memory/）
 │   └── demo/          示例数据播种
 ├── src/main/resources/static/    三个页面（index.html / style.css / app.js）
-├── src/test/java/                26 个单元测试
+├── src/test/java/                29 个单元测试
 ├── eval/                         抽取评测 + Agent 问答评测（造数据 / 跑 / 打分）
 ├── mcp/                          MCP server（stdio，代理到本地服务）
 ├── samples/                      示例文件、冒烟与压测脚本
