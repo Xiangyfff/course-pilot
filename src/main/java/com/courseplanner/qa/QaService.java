@@ -6,6 +6,8 @@ import com.courseplanner.extract.LlmBackedExtractor;
 import com.courseplanner.extract.LlmCallLogRepository;
 import com.courseplanner.extract.LlmClient;
 import com.courseplanner.program.ProgramRepository;
+import com.courseplanner.qa.agent.AgentLoop;
+import com.courseplanner.qa.memory.MemoryService;
 import com.courseplanner.solve.PlanModels;
 import com.courseplanner.solve.PlanResultRepository;
 import com.courseplanner.solve.SolveService;
@@ -31,7 +33,10 @@ public class QaService {
     public record Citation(String source, String snippet) {
     }
 
-    public record Answer(String text, List<Citation> citations, String engine) {
+    public record Answer(String text, List<Citation> citations, String engine, List<AgentLoop.Step> steps) {
+        public Answer(String text, List<Citation> citations, String engine) {
+            this(text, citations, engine, List.of());
+        }
     }
 
     private final ProgramRepository programs;
@@ -41,10 +46,15 @@ public class QaService {
     private final LlmCallLogRepository llmLogs;
     private final QaRepository qaRepo;
     private final AppProperties props;
+    private final AgentLoop agentLoop;
+    private final MemoryService memoryService;
+    private final com.fasterxml.jackson.databind.ObjectMapper mapper;
 
     public QaService(ProgramRepository programs, SolveService solveService,
                      PlanResultRepository planResults, ObjectProvider<LlmClient> llm,
-                     LlmCallLogRepository llmLogs, QaRepository qaRepo, AppProperties props) {
+                     LlmCallLogRepository llmLogs, QaRepository qaRepo, AppProperties props,
+                     AgentLoop agentLoop, MemoryService memoryService,
+                     com.fasterxml.jackson.databind.ObjectMapper mapper) {
         this.programs = programs;
         this.solveService = solveService;
         this.planResults = planResults;
@@ -52,6 +62,9 @@ public class QaService {
         this.llmLogs = llmLogs;
         this.qaRepo = qaRepo;
         this.props = props;
+        this.agentLoop = agentLoop;
+        this.memoryService = memoryService;
+        this.mapper = mapper;
     }
 
     public Answer answer(long userId, long programId, String question) {
@@ -61,14 +74,28 @@ public class QaService {
             throw BizException.forbidden();
         }
 
+        qaRepo.append(userId, programId, "user", question, null);
+        memoryService.remember(userId, question);
+        List<String> memories = memoryService.context(userId);
+
+        LlmClient client = llm.getIfAvailable();
+        if ("agent".equalsIgnoreCase(props.getQa().getMode()) && client != null) {
+            try {
+                AgentLoop.LoopResult loop = agentLoop.run(userId, programId, question, memories);
+                List<Citation> citations = mergeCitations(program, question, loop.steps());
+                qaRepo.append(userId, programId, "assistant", loop.text(), null);
+                return new Answer(loop.text(), citations, loop.engine(), loop.steps());
+            } catch (Exception e) {
+                llmLogs.recordFailure(userId, null, "qa-agent", e.getMessage());
+                log.warn("agent loop failed, fallback to classic qa", e);
+            }
+        }
+
         SolveService.Dashboard dash = solveService.dashboard(userId, programId);
         List<PlanModels.Plan> plans = planResults.latest(userId, programId);
         List<Citation> citations = retrieve(program, question);
-        String context = buildContext(dash, plans, citations);
+        String context = buildContext(dash, plans, citations, memories);
 
-        qaRepo.append(userId, programId, "user", question, null);
-
-        LlmClient client = llm.getIfAvailable();
         if (client == null) {
             String text = templateAnswer(question, dash, plans, citations);
             qaRepo.append(userId, programId, "assistant", text, null);
@@ -97,8 +124,13 @@ public class QaService {
     }
 
     private String buildContext(SolveService.Dashboard dash, List<PlanModels.Plan> plans,
-                                List<Citation> citations) {
+                                List<Citation> citations, List<String> memories) {
         StringBuilder sb = new StringBuilder();
+        if (!memories.isEmpty()) {
+            sb.append("用户偏好：");
+            sb.append(String.join("；", memories));
+            sb.append('\n');
+        }
         sb.append("专业：").append(dash.major() == null ? "未知" : dash.major()).append('\n');
         sb.append(String.format("毕业要求总学分 %.1f，已修 %.1f，还差 %.1f；未完成必修课 %d 门%n",
                 dash.requiredCredits(), dash.earnedCredits(), dash.remainingCredits(),
@@ -199,6 +231,32 @@ public class QaService {
             sb.append("（依据培养方案原文：").append(citations.get(0).snippet()).append("）");
         }
         return sb.toString();
+    }
+
+    /**
+     * agent 模式的引用 = 经典检索的结果 ∪ 工具实际检索到的片段。
+     * 后者更贴近模型真正看到的东西，所以去重后保留。
+     */
+    private List<Citation> mergeCitations(ProgramRepository.ProgramRow program, String question,
+                                          List<AgentLoop.Step> steps) {
+        List<Citation> merged = new ArrayList<>(retrieve(program, question));
+        for (AgentLoop.Step step : steps) {
+            if (!"search_program".equals(step.tool())) {
+                continue;
+            }
+            try {
+                for (var node : mapper.readTree(step.observation()).path("results")) {
+                    String snippet = node.path("snippet").asText("");
+                    if (snippet.isBlank() || merged.stream().anyMatch(m -> snippet.equals(m.snippet()))) {
+                        continue;
+                    }
+                    merged.add(new Citation(node.path("source").asText("培养方案"), snippet));
+                }
+            } catch (Exception ignored) {
+                // 工具输出截断后可能不是完整 JSON，忽略即可
+            }
+        }
+        return merged.stream().limit(5).toList();
     }
 
     public List<QaRepository.Message> history(long userId, Long programId) {

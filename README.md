@@ -82,6 +82,15 @@ CoursePilot 的做法是：上传培养方案和成绩单，后台把文本解�
 - **引擎可见** — 同一个接口，`engine` 字段直接告诉你是 `llm:deepseek-chat` 还是 `template`，页面右上角的胶囊也会变。
 - **会话留痕** — 问答写进 `qa_message`，后面做多轮上下文和评测都靠它。
 
+### 🤖 问答不是一次生成，是个有工具调用的循环
+
+> 「模型直接答」和「模型先去查再答」，在 20 条评测上差的不是准确率，是 10% 的空回答。
+
+- **三个只读工具** — `get_progress`（学分与模块缺口）、`solve_plan`（最近一次方案）、`search_program`（培养方案原文检索）。模型每轮只输出 `{"thought","tool","args"}` 或 `{"thought","final"}`，执行结果作为观察回灌，最多 3 轮。
+- **只读，不越权** — 工具不会提交求解任务、不会改方案；模型能把「帮我把课排松一点」翻译成查询条件，但落库仍走原来的确定性路径。
+- **失败不炸** — 工具不存在、抛异常、超时都转成观察文本回给模型；JSON 连续两次解析失败就中止并回落经典模式；轮数用尽时再调一次强制收束。
+- **可切换、可对比** — `QA_MODE=classic`（一次检索 + 一次生成）或 `agent`（工具循环），同一套接口、同一个前端，评测脚本能直接跑两条基线。
+
 ## 系统流程
 
 ```mermaid
@@ -131,6 +140,8 @@ sequenceDiagram
 | 文档解析 | Apache PDFBox 3.0.3 | PDF 取文本，UTF-8 严格解码失败退 GBK |
 | AI | 可插拔 `LlmClient`：`mock` / `openai-compatible` | DeepSeek、Ollama 或任意兼容端点 |
 | 算法 | 回溯搜索（CSP）、拓扑排序、MRV 剪枝 | 先修约束下的多方案排课 |
+| Agent | 手写工具调用循环、`ToolRegistry`、最多 3 轮 | 问答先查后答，工具执行结果回灌 |
+| 集成 | MCP（stdio / JSON-RPC 2.0） | 把三个只读工具暴露给 Cursor、Claude Desktop |
 | 前端 | 原生 JS、手写 CSS、SSE | 三个页面，零构建，Spring Boot 直接托管 |
 | 部署 | Docker 多阶段构建、Docker Compose | 镜像约 858 MB，MySQL 走 `mysql` profile |
 
@@ -149,6 +160,20 @@ sequenceDiagram
 | 抽取耗时 | 规则 336 ms / 真模型 4.4 s |
 
 评测集是程序生成的 12 份文档（4 种排版 × 3 种变体，27 门课 / 87 学分 / 18 条先修边），不是真实学校 PDF，绝对分数会偏高，边界写在 `eval/` 的注释里。复现脚本在 `samples/`：`bench.mjs`（单次耗时）、`load.mjs`（读接口并发）、`load-write.mjs`（写路径排队）。
+
+### Agent 问答评测（20 条用例，`eval/agent-cases.json`）
+
+| 指标 | 经典模式 | Agent 模式 |
+| :--- | :--- | :--- |
+| 工具集合准确率 | — | **85.0%**（17/20） |
+| 首个工具准确率 | — | **95.0%** |
+| 平均工具步数 | 0 | 1.58 |
+| 事实命中率 | 100%（5/5） | 100%（5/5） |
+| 空回答率 | 10% | **0%** |
+| 平均耗时 | **1067 ms** | 3221 ms |
+| 平均引用数 | 2.80 | **3.50** |
+
+三处「不准确」都是**多查了一次**而不是查错：问专业核心差多少时顺手又去检索了课程清单。拿准确率换的是「不知道时会去查」——代价是 3 倍延迟，所以默认仍是经典模式，`QA_MODE=agent` 才开。
 
 ## 本地运行
 
@@ -215,7 +240,7 @@ docker compose up --build        # http://127.0.0.1:18080
 ### 5. 验证
 
 ```bash
-./mvnw -B test                   # 22 个单元测试
+./mvnw -B test                   # 26 个单元测试
 bash samples/smoke.sh            # 13 步端到端，需要应用已在 18080 跑着
 node eval/run-eval.mjs http://127.0.0.1:18080 eval/pred-llm.json && node eval/score.mjs eval/pred-rule.json eval/pred-llm.json
 ```
@@ -233,6 +258,45 @@ node eval/run-eval.mjs http://127.0.0.1:18080 eval/pred-llm.json && node eval/sc
 | 用 curl 传中文 JSON 报编码错 | Windows 命令行会把参数转成 GBK，改用 `--data-binary @file.json` |
 | MySQL 连不上 | `docker compose --profile mysql ps` 确认容器健康，默认端口映射是 3307 |
 
+### 打开 Agent 模式
+
+```bash
+QA_MODE=agent ./mvnw spring-boot:run
+```
+
+问「我还差多少学分」，回答下方会多一行工具轨迹（`get_progress · 7 ms`），右上角引擎胶囊变成 `agent:deepseek-chat`。轮数上限 `app.qa.max-steps`（默认 3）。
+
+边界：工具都是只读的；模型不能自己触发求解任务，也不会改培养方案。轮数用尽会再调一次强制收束，所以「没查到」不会变成空回答。
+
+### 记忆
+
+`user_memory` 表存跨会话偏好，规则从问句里抽（不额外调模型）：早点毕业、想轻松点、别排早八、考研、实习。每轮问答把这些偏好拼进系统提示，所以第二句「那按这个排」不用再说一遍上下文。
+
+```bash
+curl -H "Authorization: Bearer $TOKEN" localhost:18080/api/memory
+curl -X DELETE -H "Authorization: Bearer $TOKEN" localhost:18080/api/memory/pref:morning
+```
+
+规则抽取的取舍很直白：宁可漏，不要错。所以只认几种写法，代价是「我不想太累」这类没写进词典的说法记不住。
+
+### MCP：把工具借给别的客户端
+
+`mcp/server.mjs` 是一个 stdio 的 MCP server（JSON-RPC 2.0），把三个只读工具暴露给 Cursor / Claude Desktop。它本身是代理，真正干活的是已经跑起来的 Spring Boot：
+
+```json
+{
+  "mcpServers": {
+    "coursepilot": {
+      "command": "node",
+      "args": ["D:/dshddd/course-planner/mcp/server.mjs"],
+      "env": { "COURSEPILOT_BASE": "http://127.0.0.1:18080" }
+    }
+  }
+}
+```
+
+不配 token 时会自动用 `POST /api/auth/demo` 登录（所以只适合本地演示）。服务没启动时工具调用会直接报错，不会静默失败。
+
 ## 目录结构
 
 ```text
@@ -244,11 +308,12 @@ course-pilot
 │   ├── job/           任务状态机、CAS 认领、补偿、SSE
 │   ├── extract/       PDF/文本解析、模型与规则抽取、校验链
 │   ├── solve/         回溯求解器、方案、看板
-│   ├── qa/            检索 + 流式回答
+│   ├── qa/            检索 + 流式回答 + 工具循环（agent/）+ 记忆（memory/）
 │   └── demo/          示例数据播种
 ├── src/main/resources/static/    三个页面（index.html / style.css / app.js）
-├── src/test/java/                22 个单元测试
-├── eval/                         抽取评测（造数据 / 跑 / 打分）
+├── src/test/java/                26 个单元测试
+├── eval/                         抽取评测 + Agent 问答评测（造数据 / 跑 / 打分）
+├── mcp/                          MCP server（stdio，代理到本地服务）
 ├── samples/                      示例文件、冒烟与压测脚本
 ├── docs/screenshots/             界面截图
 └── compose.yaml                  Docker Compose（app + mysql profile）
@@ -262,6 +327,9 @@ course-pilot
 - 评测集是合成语料，数字不能当线上准确率
 - SSE 长连接没压过：每条连接一个轮询线程加一次 DB 查询，连接数上来会先打爆这里
 - 求解器是启发式回溯，不保证最优解；40 门课这个规模够用
+- Agent 模式没有并行工具调用，也没有自己重试失败的工具——失败就换下一个工具或收束
+- 记忆抽取是关键词规则，说法稍微绕一点就记不住；也没有「忘记全部」之外的冲突处理
+- MCP server 没有鉴权传递（自动演示登录），只适合本机，不能直接对公网开
 
 ## License
 

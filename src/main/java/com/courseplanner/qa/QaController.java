@@ -51,11 +51,12 @@ public class QaController {
         pool.submit(() -> {
             try {
                 QaService.Answer answer = qaService.answer(userId, req.programId(), req.question());
+                java.util.Map<String, Object> meta = new java.util.LinkedHashMap<>();
+                meta.put("citations", answer.citations());
+                meta.put("engine", answer.engine());
+                meta.put("steps", answer.steps());
                 emitter.send(SseEmitter.event().name("meta").data(
-                        mapper.writeValueAsString(Map.of(
-                                "citations", answer.citations(),
-                                "engine", answer.engine())),
-                        MediaType.APPLICATION_JSON));
+                        mapper.writeValueAsString(meta), MediaType.APPLICATION_JSON));
                 String text = answer.text();
                 int step = 6;
                 for (int i = 0; i < text.length(); i += step) {

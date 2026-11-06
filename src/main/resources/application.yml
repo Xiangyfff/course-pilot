@@ -56,6 +56,11 @@ app:
     mode: ${CACHE_MODE:caffeine}
     program-ttl-seconds: 600
     solve-ttl-seconds: 1800
+  qa:
+    # classic: 检索片段 + 一次生成，链路写死、可复现
+    # agent: 模型自己决定调哪个工具、调几次（需要 openai-compatible 模型）
+    mode: ${QA_MODE:classic}
+    max-steps: 3
   mq:
     mode: ${MQ_MODE:local}
     name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}

@@ -391,6 +391,7 @@ async function ask() {
                     const meta = JSON.parse(ev.data);
                     botEl.dataset.citations = JSON.stringify(meta.citations || []);
                     botEl.dataset.engine = meta.engine || '';
+                    botEl.dataset.steps = JSON.stringify(meta.steps || []);
                 } catch { /* ignore */ }
             } else if (ev.event === 'delta') {
                 if (text === '') botEl.textContent = '';
@@ -398,6 +399,15 @@ async function ask() {
                 botEl.textContent = text;
                 log.scrollTop = log.scrollHeight;
             } else if (ev.event === 'done') {
+                const steps = JSON.parse(botEl.dataset.steps || '[]');
+                if (steps.length) {
+                    const trace = document.createElement('div');
+                    trace.className = 'trace';
+                    trace.textContent = '工具调用：' + steps
+                        .map(s => `${s.tool}${s.observation && s.observation.includes('"error"') ? '(失败)' : ''} · ${s.ms}ms`)
+                        .join(' → ');
+                    botEl.appendChild(trace);
+                }
                 const citations = JSON.parse(botEl.dataset.citations || '[]');
                 if (citations.length) {
                     const cite = document.createElement('span');

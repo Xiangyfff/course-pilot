@@ -1,0 +1,112 @@
+[
+  {
+    "id": "progress-total",
+    "question": "我还差多少学分？",
+    "expectTools": ["get_progress"],
+    "expectFacts": ["117"],
+    "note": "单工具、事实型"
+  },
+  {
+    "id": "progress-earned",
+    "question": "我现在一共修了多少学分？",
+    "expectTools": ["get_progress"],
+    "note": "同义问法，考工具选择是否稳定"
+  },
+  {
+    "id": "progress-general",
+    "question": "通识教育模块还差多少学分？",
+    "expectTools": ["get_progress"]
+  },
+  {
+    "id": "progress-major",
+    "question": "专业核心还差几门必修课？",
+    "expectTools": ["get_progress"]
+  },
+  {
+    "id": "progress-practice",
+    "question": "实践环节还差多少学分？",
+    "expectTools": ["get_progress"]
+  },
+  {
+    "id": "progress-graduate",
+    "question": "我离毕业还差多少学分？",
+    "expectTools": ["get_progress"]
+  },
+  {
+    "id": "rule-total-credit",
+    "question": "这个培养方案的毕业总学分要求是多少？",
+    "expectTools": ["search_program"],
+    "expectFacts": ["117"],
+    "note": "原文里写着，考检索"
+  },
+  {
+    "id": "rule-prereq",
+    "question": "培养方案里是先修关系怎么规定的？",
+    "expectTools": ["search_program"]
+  },
+  {
+    "id": "rule-max-credit",
+    "question": "每学期最多能修多少学分？",
+    "expectTools": ["search_program"],
+    "expectFacts": ["25"]
+  },
+  {
+    "id": "rule-module-min",
+    "question": "通识教育模块最低要求多少学分？",
+    "expectTools": ["search_program"],
+    "expectFacts": ["28"]
+  },
+  {
+    "id": "plan-all",
+    "question": "我最近一次排课方案里每学期都上什么课？",
+    "expectTools": ["solve_plan"]
+  },
+  {
+    "id": "plan-first-term",
+    "question": "方案第一学期要上哪些课？",
+    "expectTools": ["solve_plan"]
+  },
+  {
+    "id": "plan-risk",
+    "question": "我的排课方案风险分是多少？",
+    "expectTools": ["solve_plan"]
+  },
+  {
+    "id": "plan-semesters",
+    "question": "我最快几个学期能修完？",
+    "expectTools": ["solve_plan"]
+  },
+  {
+    "id": "multi-progress-plan",
+    "question": "先告诉我还差哪些模块的学分，再说方案第一学期上什么课。",
+    "expectTools": ["get_progress", "solve_plan"],
+    "note": "两个工具，考规划顺序"
+  },
+  {
+    "id": "multi-general-plan",
+    "question": "通识教育还差什么，另外我方案第二学期有什么课？",
+    "expectTools": ["get_progress", "solve_plan"]
+  },
+  {
+    "id": "multi-credit-rule",
+    "question": "毕业要求多少学分，每学期上限又是多少？",
+    "expectTools": ["search_program"],
+    "expectFacts": ["117", "25"]
+  },
+  {
+    "id": "multi-progress-prereq",
+    "question": "我还差多少学分？顺便说说先修要求。",
+    "expectTools": ["get_progress", "search_program"]
+  },
+  {
+    "id": "rule-course-prereq",
+    "question": "操作系统这门课的先修是什么？",
+    "expectTools": ["search_program"]
+  },
+  {
+    "id": "unknown-out-of-scope",
+    "question": "食堂几点开门？",
+    "expectTools": [],
+    "note": "越界问题：正确行为是不调工具或调了也承认不知道"
+  }
+]

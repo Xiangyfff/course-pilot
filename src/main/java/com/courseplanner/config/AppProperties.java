@@ -11,6 +11,7 @@ public class AppProperties {
     private final Solver solver = new Solver();
     private final Cache cache = new Cache();
     private final Mq mq = new Mq();
+    private final Qa qa = new Qa();
 
     public Auth getAuth() { return auth; }
     public Llm getLlm() { return llm; }
@@ -18,6 +19,18 @@ public class AppProperties {
     public Solver getSolver() { return solver; }
     public Cache getCache() { return cache; }
     public Mq getMq() { return mq; }
+    public Qa getQa() { return qa; }
+
+    public static class Qa {
+        /** classic: 检索 + 一次生成；agent: 模型自主选择工具的多轮循环 */
+        private String mode = "classic";
+        /** agent 模式下最多几轮工具调用，超限强制收束 */
+        private int maxSteps = 3;
+        public String getMode() { return mode; }
+        public void setMode(String v) { this.mode = v; }
+        public int getMaxSteps() { return maxSteps; }
+        public void setMaxSteps(int v) { this.maxSteps = v; }
+    }
 
     public static class Auth {
         private String jwtSecret = "dev-only-secret-please-change-in-prod-0123456789";
