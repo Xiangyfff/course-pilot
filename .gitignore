@@ -12,3 +12,4 @@ eval/pred-*.json
 docs/INTERVIEW.md
 docs/RESUME.md
 private-notes/
+run-*.err

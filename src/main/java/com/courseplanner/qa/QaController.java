@@ -19,7 +19,9 @@ import java.util.concurrent.Executors;
 @RequestMapping("/api/qa")
 public class QaController {
 
-    public record AskRequest(@NotNull Long programId, @NotBlank String question) {
+    /** history 可选：只用于解析「那按这个排呢」这类指代，事实仍必须来自工具。 */
+    public record AskRequest(@NotNull Long programId, @NotBlank String question,
+                             List<QaService.Turn> history) {
     }
 
     private final QaService qaService;
@@ -50,7 +52,7 @@ public class QaController {
         SseEmitter emitter = new SseEmitter(120_000L);
         pool.submit(() -> {
             try {
-                QaService.Answer answer = qaService.answer(userId, req.programId(), req.question());
+                QaService.Answer answer = qaService.answer(userId, req.programId(), req.question(), req.history());
                 java.util.Map<String, Object> meta = new java.util.LinkedHashMap<>();
                 meta.put("citations", answer.citations());
                 meta.put("engine", answer.engine());

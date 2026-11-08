@@ -46,10 +46,12 @@ public class ProgressTool implements AgentTool {
         ArrayNode modules = n.putArray("modules");
         for (SolveService.ModuleProgress m : d.modules()) {
             modules.addObject()
+                    .put("code", m.code())
                     .put("name", m.name())
                     .put("required", m.required())
                     .put("earned", m.earned())
-                    .put("remaining", m.remaining());
+                    .put("remaining", m.remaining())
+                    .put("coursesLeft", m.coursesLeft());
         }
         return n;
     }

@@ -33,6 +33,13 @@ public class QaService {
     public record Citation(String source, String snippet) {
     }
 
+    /** 上一轮问答，用于解析「那按这个排呢」这类指代。 */
+    public record Turn(String question, String answer) {
+    }
+
+    private static final int HISTORY_LIMIT = 3;
+    private static final int HISTORY_ANSWER_CLIP = 120;
+
     public record Answer(String text, List<Citation> citations, String engine, List<AgentLoop.Step> steps) {
         public Answer(String text, List<Citation> citations, String engine) {
             this(text, citations, engine, List.of());
@@ -68,6 +75,10 @@ public class QaService {
     }
 
     public Answer answer(long userId, long programId, String question) {
+        return answer(userId, programId, question, List.of());
+    }
+
+    public Answer answer(long userId, long programId, String question, List<Turn> history) {
         ProgramRepository.ProgramRow program = programs.findById(programId)
                 .orElseThrow(() -> BizException.notFound("培养方案"));
         if (program.userId() != userId) {
@@ -77,11 +88,12 @@ public class QaService {
         qaRepo.append(userId, programId, "user", question, null);
         memoryService.remember(userId, question);
         List<String> memories = memoryService.context(userId);
+        String historyBlock = formatHistory(history);
 
         LlmClient client = llm.getIfAvailable();
         if ("agent".equalsIgnoreCase(props.getQa().getMode()) && client != null) {
             try {
-                AgentLoop.LoopResult loop = agentLoop.run(userId, programId, question, memories);
+                AgentLoop.LoopResult loop = agentLoop.run(userId, programId, question, memories, historyBlock);
                 List<Citation> citations = mergeCitations(program, question, loop.steps());
                 qaRepo.append(userId, programId, "assistant", loop.text(), null);
                 return new Answer(loop.text(), citations, loop.engine(), loop.steps());
@@ -94,7 +106,7 @@ public class QaService {
         SolveService.Dashboard dash = solveService.dashboard(userId, programId);
         List<PlanModels.Plan> plans = planResults.latest(userId, programId);
         List<Citation> citations = retrieve(program, question);
-        String context = buildContext(dash, plans, citations, memories);
+        String context = buildContext(dash, plans, citations, memories, historyBlock);
 
         if (client == null) {
             String text = templateAnswer(question, dash, plans, citations);
@@ -124,7 +136,7 @@ public class QaService {
     }
 
     private String buildContext(SolveService.Dashboard dash, List<PlanModels.Plan> plans,
-                                List<Citation> citations, List<String> memories) {
+                                List<Citation> citations, List<String> memories, String historyBlock) {
         StringBuilder sb = new StringBuilder();
         if (!memories.isEmpty()) {
             sb.append("用户偏好：");
@@ -153,6 +165,32 @@ public class QaService {
             sb.append("培养方案原文片段：\n");
             for (Citation c : citations) {
                 sb.append("- ").append(c.snippet()).append('\n');
+            }
+        }
+        if (historyBlock != null && !historyBlock.isBlank()) {
+            sb.append(historyBlock);
+        }
+        return sb.toString();
+    }
+
+    /** 只保留最近 3 轮，答案截断——上下文给太多反而干扰「指代解析」这件小事。 */
+    private static String formatHistory(List<Turn> history) {
+        if (history == null || history.isEmpty()) {
+            return "";
+        }
+        List<Turn> recent = history.subList(Math.max(0, history.size() - HISTORY_LIMIT), history.size());
+        StringBuilder sb = new StringBuilder();
+        for (Turn turn : recent) {
+            if (turn == null || turn.question() == null) {
+                continue;
+            }
+            String answer = turn.answer() == null ? "" : turn.answer().replaceAll("\\s+", " ").trim();
+            if (answer.length() > HISTORY_ANSWER_CLIP) {
+                answer = answer.substring(0, HISTORY_ANSWER_CLIP) + "…";
+            }
+            sb.append("学生：").append(turn.question().trim()).append('\n');
+            if (!answer.isEmpty()) {
+                sb.append("助教：").append(answer).append('\n');
             }
         }
         return sb.toString();

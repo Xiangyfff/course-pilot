@@ -40,12 +40,14 @@ public class AgentLoop {
             规则：
             1. 一次只调一个工具；
             2. 不要重复调用同一个工具且参数相同；
-            3. 事实只能来自工具返回，不要编造课程、学分或政策。
+            3. 事实只能来自工具返回，不要编造课程、学分或政策；
+            4. 工具只覆盖学生自己这一个培养方案。问到别的专业、别的学校或本方案没写的课程（如游泳课）时，直接回答「培养方案里没有写」，不要去查别的方案。
             """;
 
     private static final String ANSWER_SYSTEM = """
             你是课程规划助教。只能使用给定的工具结果回答问题，不要编造课程、学分或政策。
             如果工具结果里没有答案，直接说「培养方案里没有写」。回答控制在 200 字以内，用中文。
+            工具结果只覆盖学生自己的培养方案：问到别的专业或学校时，要明确说明手里没有那份方案，不要拿本方案的数字顶替。
             """;
 
     private final ToolRegistry registry;
@@ -64,16 +66,26 @@ public class AgentLoop {
     }
 
     public LoopResult run(long userId, long programId, String question) {
-        return run(userId, programId, question, List.of());
+        return run(userId, programId, question, List.of(), "");
     }
 
     /** memories 是长期记忆（用户偏好），只拼进 prompt，不参与工具选择的事实判断。 */
     public LoopResult run(long userId, long programId, String question, List<String> memories) {
+        return run(userId, programId, question, memories, "");
+    }
+
+    /**
+     * history 是最近几轮对话（已格式化），用于解析「那按这个排呢」这类指代。
+     * 它只帮助理解问题指向，事实仍必须来自工具。
+     */
+    public LoopResult run(long userId, long programId, String question,
+                          List<String> memories, String history) {
         LlmClient client = llm.getIfAvailable();
         if (client == null) {
             throw new IllegalStateException("没有可用的模型客户端，agent 模式需要 llm.provider=openai-compatible");
         }
         String memoryBlock = memories.isEmpty() ? "" : "\n用户偏好（长期记忆）：\n- " + String.join("\n- ", memories) + "\n";
+        String historyBlock = history == null || history.isBlank() ? "" : "\n最近对话：\n" + history + "\n";
         int maxSteps = Math.max(1, props.getQa().getMaxSteps());
         List<Step> steps = new ArrayList<>();
         StringBuilder observations = new StringBuilder();
@@ -86,6 +98,7 @@ public class AgentLoop {
             String prompt = toolCatalog()
                     + "\n已收集的信息：\n" + (observations.isEmpty() ? "（还没有）" : observations)
                     + memoryBlock
+                    + historyBlock
                     + "\n\n学生问题：" + question;
             LlmClient.Result plan = client.chat(
                     new LlmClient.Request("qa-agent-plan", PLANNER_SYSTEM, prompt, true));
@@ -140,6 +153,7 @@ public class AgentLoop {
         if (finalText == null) {
             String prompt = "工具结果：\n" + (observations.isEmpty() ? "（没有拿到任何工具结果）" : observations)
                     + memoryBlock
+                    + historyBlock
                     + "\n\n学生问题：" + question;
             LlmClient.Result answer = client.chat(
                     new LlmClient.Request("qa-agent-answer", ANSWER_SYSTEM, prompt, false));

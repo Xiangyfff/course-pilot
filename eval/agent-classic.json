@@ -1,95 +1,212 @@
 {
-  "base": "http://127.0.0.1:18081",
+  "base": "http://127.0.0.1:18080",
   "programId": 1,
+  "repeats": 3,
+  "cases": 45,
   "results": [
     {
       "id": "progress-total",
+      "category": "single",
       "question": "我还差多少学分？",
       "expectTools": [
         "get_progress"
       ],
       "expectFacts": [
-        "117"
+        "62"
       ],
-      "tools": [],
-      "steps": [],
-      "ms": 1208,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "你目前还差 **62.0 学分**（毕业要求 117.0，已修 55.0）。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 2048,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你目前还差 **62.0 学分**（毕业要求 117.0，已修 55.0）。块看：通识教育：还差 12.0自然科学：还差 3.0- 专业核心：还差 25.0践环节：还差 16.0成必修课 14 门；最近一次求解显示最快 8 学期修完，共 56.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 1002,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你毕业要求总学分 117.0，已修 55.0，还差 **62.0 学分**。"
+        },
+        {
+          "round": 3,
+          "ms": 551,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你毕业要求总学分 117.0，已修 55.0，还差 **62.0 学分**。"
+        }
+      ]
     },
     {
       "id": "progress-earned",
+      "category": "single",
       "question": "我现在一共修了多少学分？",
       "expectTools": [
         "get_progress"
       ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1057,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "你已修 **55.0 学分**。"
+      "expectFacts": [
+        "55"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 574,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你已修 **55.0 学分**。"
+        },
+        {
+          "round": 2,
+          "ms": 1189,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你已修 **55.0 学分**。"
+        },
+        {
+          "round": 3,
+          "ms": 787,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你已修 **55.0 学分**。"
+        }
+      ]
     },
     {
       "id": "progress-general",
+      "category": "single",
       "question": "通识教育模块还差多少学分？",
       "expectTools": [
         "get_progress"
       ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 868,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "通识教育模块还差 12.0 学分（要求 28.0，已修 16.0）。"
+      "expectFacts": [
+        "12"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 950,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育模块还差 12.0 学分（要求 28.0，已修 16.0）。"
+        },
+        {
+          "round": 2,
+          "ms": 917,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育模块还差 12.0 学分（要求 28.0，已修 16.0）。"
+        },
+        {
+          "round": 3,
+          "ms": 972,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育模块还差 12.0 学分（要求 28.0，已修 16.0）。"
+        }
+      ]
     },
     {
       "id": "progress-major",
+      "category": "single",
       "question": "专业核心还差几门必修课？",
       "expectTools": [
         "get_progress"
       ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1009,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "培养方案里没有写。"
+      "expectFacts": [
+        "5"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1348,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写专业核心还差几门必修课。现有信息只说明专业核心要求40.0学分、已修15.0、还差25.0，以及未完成必修课共14门，未按模块拆分门数。"
+        },
+        {
+          "round": 2,
+          "ms": 889,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写。给定信息只说明「专业核心」模块还差 25.0 学分，以及未完成必修课共 14 门，但没有列出专业核心模块具体还差几门必修课。"
+        },
+        {
+          "round": 3,
+          "ms": 1241,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写专业核心模块还差几门必修课。现有信息只说明专业核心要求40.0学分、已修15.0、还差25.0，以及未完成必修课共14门，未按模块拆分门数。"
+        }
+      ]
     },
     {
       "id": "progress-practice",
+      "category": "single",
       "question": "实践环节还差多少学分？",
       "expectTools": [
         "get_progress"
       ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 860,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "实践环节还差 16.0 学分（要求 18.0，已修 2.0）。"
-    },
-    {
-      "id": "progress-graduate",
-      "question": "我离毕业还差多少学分？",
-      "expectTools": [
-        "get_progress"
+      "expectFacts": [
+        "16"
       ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1147,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "你离毕业还差 **62.0 学分**（总要求 117.0，已修 55.0）。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1196,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "实践环节还差 16.0 学分（要求 18.0，已修 2.0）。"
+        },
+        {
+          "round": 2,
+          "ms": 793,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "实践环节还差 16.0 学分（要求 18.0，已修 2.0）。"
+        },
+        {
+          "round": 3,
+          "ms": 550,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "实践环节还差 16.0 学分（要求 18.0，已修 2.0）。"
+        }
+      ]
     },
     {
       "id": "rule-total-credit",
+      "category": "single",
       "question": "这个培养方案的毕业总学分要求是多少？",
       "expectTools": [
         "search_program"
@@ -97,29 +214,39 @@
       "expectFacts": [
         "117"
       ],
-      "tools": [],
-      "steps": [],
-      "ms": 836,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "毕业总学分要求是 117.0 学分。"
-    },
-    {
-      "id": "rule-prereq",
-      "question": "培养方案里是先修关系怎么规定的？",
-      "expectTools": [
-        "search_program"
-      ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1520,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "培养方案原文只写了「课程代码与先修关系以本方案为准」，并给出一个示例：EN102 大学英语(二) 3.0 必修，学期 2、3，先修 EN101。除此之外，培养方案里没有写其他先修关系的具体规定。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 710,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案写明毕业总学分要求是 **117 学分**。"
+        },
+        {
+          "round": 2,
+          "ms": 572,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "这个培养方案的毕业总学分要求是 **117.0 学分**。"
+        },
+        {
+          "round": 3,
+          "ms": 862,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案规定毕业总学分为 **117.0 学分**。"
+        }
+      ]
     },
     {
       "id": "rule-max-credit",
+      "category": "single",
       "question": "每学期最多能修多少学分？",
       "expectTools": [
         "search_program"
@@ -127,117 +254,155 @@
       "expectFacts": [
         "25"
       ],
-      "tools": [],
-      "steps": [],
-      "ms": 917,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "培养方案里写明：每学期最多修读 25 学分。"
-    },
-    {
-      "id": "rule-module-min",
-      "question": "通识教育模块最低要求多少学分？",
-      "expectTools": [
-        "search_program"
-      ],
-      "expectFacts": [
-        "28"
-      ],
-      "tools": [],
-      "steps": [],
-      "ms": 1104,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "通识教育模块最低要求 28.0 学分。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1020,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里写明：每学期最多修读 25 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 956,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "每学期最多能修读 25 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1146,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里写明：每学期最多修读 25 学分。"
+        }
+      ]
     },
     {
       "id": "plan-all",
+      "category": "single",
       "question": "我最近一次排课方案里每学期都上什么课？",
       "expectTools": [
         "solve_plan"
       ],
       "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1424,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "最近一次排课方案如下：期：艺术鉴赏、体育(三)、大学物理(下)、马克思主义基本原理期：操作系统、计算机网络、数据库系统、体育(四)、毛泽东思想和中国特色社会主义理论体系概论第5学期：软件工程、编译原理、人工智能导论、创新创业基础 第6学期：分布式系统、机器学习、软件工程课程设计学期：生产实习学期：毕业设计最快8学期修完，共56.0学分。"
-    },
-    {
-      "id": "plan-first-term",
-      "question": "方案第一学期要上哪些课？",
-      "expectTools": [
-        "solve_plan"
-      ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1281,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "培养方案里没有写第一学期完整的课程清单。原文片段只提到 EN101 大学英语(一) 3.0 必修，学期 1,2，其余第一学期课程未给出。"
-    },
-    {
-      "id": "plan-risk",
-      "question": "我的排课方案风险分是多少？",
-      "expectTools": [
-        "solve_plan"
-      ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 813,
-      "engine": "llm:deepseek-chat",
-      "citations": 2,
-      "text": "培养方案里没有写风险分的计算方式或数值，无法给出风险分。"
-    },
-    {
-      "id": "plan-semesters",
-      "question": "我最快几个学期能修完？",
-      "expectTools": [
-        "solve_plan"
-      ],
-      "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 503,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "根据最近一次求解结果，最快 **8 个学期**修完，共 56.0 学分。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1543,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "最近一次排课方案如下：期：艺术鉴赏、体育(三)、大学物理(下)、马克思主义基本原理期：操作系统、计算机网络、数据库系统、体育(四)、毛泽东思想和中国特色社会主义理论体系概论第5学期：软件工程、编译原理、人工智能导论、创新创业基础 第6学期：分布式系统、机器学习、软件工程课程设计学期：生产实习学期：毕业设计最快 8 学期修完，共 56.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 1540,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "最近一次排课方案如下：期：艺术鉴赏、体育(三)、大学物理(下)、马克思主义基本原理期：操作系统、计算机网络、数据库系统、体育(四)、毛泽东思想和中国特色社会主义理论体系概论第5学期：软件工程、编译原理、人工智能导论、创新创业基础 第6学期：分布式系统、机器学习、软件工程课程设计学期：生产实习学期：毕业设计最快 8 学期修完，共 56.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1974,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "最近一次排课方案如下：期：艺术鉴赏、体育(三)、大学物理(下)、马克思主义基本原理期：操作系统、计算机网络、数据库系统、体育(四)、毛泽东思想和中国特色社会主义理论体系概论第5学期：软件工程、编译原理、人工智能导论、创新创业基础 第6学期：分布式系统、机器学习、软件工程课程设计学期：生产实习学期：毕业设计最快 8 学期修完，共 56.0 学分。"
+        }
+      ]
     },
     {
       "id": "multi-progress-plan",
+      "category": "multi",
       "question": "先告诉我还差哪些模块的学分，再说方案第一学期上什么课。",
       "expectTools": [
         "get_progress",
         "solve_plan"
       ],
       "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1531,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "还差学分的模块：通识教育差12.0，数学与自然科学差3.0，专业核心差25.0，实践环节差16.0，合计62.0。案第一学期上什么课：培养方案原文片段里没有写。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1248,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "还差学分的模块：识教育：还差 12.0- 数学与自然科学：还差 3.0 专业核心：还差 25.0环节：还差 16.0关于第一学期课程：培养方案原文片段里没有写第一学期上什么课，无法回答。"
+        },
+        {
+          "round": 2,
+          "ms": 1494,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "还差学分的模块：识教育：还差 12.0- 数学与自然科学：还差 3.0 专业核心：还差 25.0环节：还差 16.0关于第一学期课程：培养方案原文片段里没有写第一学期具体课程，无法回答。"
+        },
+        {
+          "round": 3,
+          "ms": 1412,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "还差学分的模块：识教育：还差 12.0- 数学与自然科学：还差 3.0 专业核心：还差 25.0环节：还差 16.0关于第一学期课程：培养方案原文片段里没有写第一学期具体课程，无法回答。"
+        }
+      ]
     },
     {
       "id": "multi-general-plan",
+      "category": "multi",
       "question": "通识教育还差什么，另外我方案第二学期有什么课？",
       "expectTools": [
         "get_progress",
         "solve_plan"
       ],
       "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 866,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "通识教育还差 12.0 学分，但培养方案里没有列出具体缺哪些课程。案第二学期有什么课，培养方案里没有写。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1081,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育还差 12.0 学分，但培养方案里没有写具体缺哪些课程。第二学期有什么课，培养方案里也没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 1330,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育还差 12.0 学分，但培养方案里没有写具体缺哪些课程。第二学期有什么课，培养方案里没有写。"
+        },
+        {
+          "round": 3,
+          "ms": 1390,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育还差 12.0 学分，但培养方案里没有列出具体还缺哪些课程，无法判断“还差什么”。于第二学期课程：培养方案原文片段中没有第二学期的课程安排，因此「培养方案里没有写」。"
+        }
+      ]
     },
     {
       "id": "multi-credit-rule",
+      "category": "multi",
       "question": "毕业要求多少学分，每学期上限又是多少？",
       "expectTools": [
         "search_program"
@@ -246,53 +411,1341 @@
         "117",
         "25"
       ],
-      "tools": [],
-      "steps": [],
-      "ms": 674,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "毕业要求总学分是 117.0 学分；每学期最多修读 25 学分。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 473,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "毕业要求总学分是 117.0 学分；每学期最多修读 25 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 903,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "毕业要求总学分是 117.0 学分；每学期最多修读 25 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1050,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "毕业要求总学分是 117.0 学分；每学期最多修读 25 学分。"
+        }
+      ]
     },
     {
       "id": "multi-progress-prereq",
-      "question": "我还差多少学分？顺便说说先修要求。",
+      "category": "multi",
+      "question": "我还差多少学分？顺便说说操作系统这门课的先修。",
       "expectTools": [
         "get_progress",
         "search_program"
       ],
       "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 1802,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "你还差 **62.0 学分**（总 117.0，已修 55.0）。分模块：通识教育差 12.0，数学与自然科学差 3.0，专业核心差 25.0，实践环节差 16.0。培养方案原文只写了「课程代码与先修关系以本方案为准」，**具体先修关系培养方案里没有写**，无法列出哪门课需要先修哪门课。建议查阅方案中的课程代码与先修关系表。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1188,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你还差 62.0 学分（总 117.0，已修 55.0）。其中通识教育差 12.0，数学与自然科学差 3.0，专业核心差 25.0，实践环节差 16.0。CS203）为 4.0 学分必修课，建议学期 4、5，先修课程是 CS201、CS202。"
+        },
+        {
+          "round": 2,
+          "ms": 1384,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你还差 62.0 学分（总 117.0，已修 55.0）。其中通识教育差 12.0，数学与自然科学差 3.0，专业核心差 25.0，实践环节差 16.0。CS203）为 4.0 学分必修课，建议学期 4、5，先修课程是 CS201、CS202。"
+        },
+        {
+          "round": 3,
+          "ms": 1242,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你还差 62.0 学分（总 117.0，已修 55.0）。其中通识教育差 12.0，数学与自然科学差 3.0，专业核心差 25.0，实践环节差 16.0。CS203，4.0 学分，必修，学期 4、5）的先修课程是 CS201、CS202。"
+        }
+      ]
     },
     {
-      "id": "rule-course-prereq",
-      "question": "操作系统这门课的先修是什么？",
+      "id": "multi-plan-risk",
+      "category": "multi",
+      "question": "我的方案风险分多少，最快几个学期修完？",
+      "expectTools": [
+        "solve_plan"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1242,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写“方案风险分”的计算方式或分值，无法给出风险分。修完学期数：最近一次求解结果为 **8 学期**，共 56.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 889,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写“方案风险分”的计算方式或分值，无法给出风险分。修完学期数：最近一次求解结果为 **8 学期**，共 56.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1111,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写“方案风险分”的计算方式或分值，无法给出风险分。修完学期数：最近一次求解结果为 **8 学期**，共 56.0 学分。"
+        }
+      ]
+    },
+    {
+      "id": "multi-earned-module",
+      "category": "multi",
+      "question": "我已经修了多少学分，数学模块还差多少？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [
+        "55"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 755,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你已修 55.0 学分；数学与自然科学模块要求 25.0 学分，已修 22.0，还差 3.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 996,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你已修 55.0 学分；数学与自然科学模块要求 25.0 学分，已修 22.0，还差 3.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1095,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你已修 55.0 学分；数学与自然科学模块要求 25.0 学分，已修 22.0，还差 3.0 学分。"
+        }
+      ]
+    },
+    {
+      "id": "multi-rule-course",
+      "category": "multi",
+      "question": "通识教育最低要多少学分，大学英语的先修又是什么？",
+      "expectTools": [
+        "search_program"
+      ],
+      "expectFacts": [
+        "28"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1053,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育最低要求 28.0 学分。大学英语(二)（EN102）的先修课程是大学英语(一)（EN101）；培养方案片段中未写明 EN101 的先修要求。"
+        },
+        {
+          "round": 2,
+          "ms": 760,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育最低要求 28.0 学分。大学英语(二)（EN102）的先修是大学英语(一)（EN101）；培养方案片段中未写 EN101 的先修要求。"
+        },
+        {
+          "round": 3,
+          "ms": 1141,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育最低要求 28.0 学分。大学英语(二)（EN102）的先修是大学英语(一)（EN101）；培养方案片段中未写 EN101 的先修要求。"
+        }
+      ]
+    },
+    {
+      "id": "multi-three",
+      "category": "multi",
+      "question": "把我的学分进度、最近方案和通识教育的要求一起说一下。",
+      "expectTools": [
+        "get_progress",
+        "solve_plan",
+        "search_program"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 2171,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你的毕业总学分要求117.0，已修55.0，还差62.0；未完成必修课14门。分模块看：通识教育要求28.0，已修16.0，还差12.0；数学与自然科学要求25.0，已修22.0，还差3.0；专业核心要求40.0，已修15.0，还差25.0；实践环节要求18.0，已修2.0，还差16.0。次求解结果为最快8学期修完，共56.0学分，安排覆盖第3至第8学期，包括艺术鉴赏、操作系统、软件工程、生产实习、毕业设计等课程。通识教育最低要求28学分；培养方案另注明每学期最多修读25学分，课程代码与先修关系以本方案为准。"
+        },
+        {
+          "round": 2,
+          "ms": 2251,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你的毕业总学分要求117.0，已修55.0，还差62.0；未完成必修课14门。分模块看：通识教育要求28.0，已修16.0，还差12.0；数学与自然科学要求25.0，已修22.0，还差3.0；专业核心要求40.0，已修15.0，还差25.0；实践环节要求18.0，已修2.0，还差16.0。次求解结果为最快8学期修完，共56.0学分，安排覆盖第3至第8学期，包括艺术鉴赏、操作系统、软件工程、生产实习、毕业设计等课程。通识教育最低要求28学分；培养方案另注明每学期最多修读25学分，课程代码与先修关系以本方案为准。"
+        },
+        {
+          "round": 3,
+          "ms": 2098,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你的毕业总学分要求117.0，已修55.0，还差62.0；未完成必修课14门。分模块看：通识教育要求28.0，已修16.0，还差12.0；数学与自然科学要求25.0，已修22.0，还差3.0；专业核心要求40.0，已修15.0，还差25.0；实践环节要求18.0，已修2.0，还差16.0。次求解结果为最快8学期修完，共56.0学分，安排覆盖第3至第8学期，包括艺术鉴赏、操作系统、软件工程、生产实习、毕业设计等课程。通识教育最低要求28学分；培养方案另注明每学期最多修读25学分，课程代码与先修关系以本方案为准。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-canteen",
+      "category": "no_tool",
+      "question": "食堂几点开门？",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 522,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 709,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 3,
+          "ms": 852,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-weather",
+      "category": "no_tool",
+      "question": "明天会下雨吗？",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 736,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 1068,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 3,
+          "ms": 912,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-poem",
+      "category": "no_tool",
+      "question": "帮我写一首关于春天的诗。",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1221,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "我是课程规划助教，只能回答与培养方案和选课规划相关的问题，不提供诗歌创作。如果你有关于学分安排、课程冲突或修读计划的问题，可以继续问我。"
+        },
+        {
+          "round": 2,
+          "ms": 1474,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "我是课程规划助教，只回答与培养方案和选课规划相关的问题，不提供写诗服务。如果你有关于软件工程专业学分、模块要求或学期安排的问题，可以继续问我。"
+        },
+        {
+          "round": 3,
+          "ms": 1465,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "我是课程规划助教，只回答与培养方案和选课规划相关的问题，不提供诗歌创作。如果你有关于学分、课程安排或修读计划的问题，可以继续问我。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-wifi",
+      "category": "no_tool",
+      "question": "学校校园网怎么连？",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 674,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写校园网连接方式。"
+        },
+        {
+          "round": 2,
+          "ms": 1255,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写校园网连接方式。这个问题不属于课程规划范围，建议咨询学校网络信息中心或辅导员。"
+        },
+        {
+          "round": 3,
+          "ms": 1308,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写校园网连接方式。这个问题不属于课程规划范围，建议咨询学校网络信息中心或辅导员。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-refund",
+      "category": "no_tool",
+      "question": "我想退学费，流程是什么？",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 796,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写退学费流程。"
+        },
+        {
+          "round": 2,
+          "ms": 1000,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写退学费流程。"
+        },
+        {
+          "round": 3,
+          "ms": 948,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写退学费流程。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-dorm",
+      "category": "no_tool",
+      "question": "宿舍几点熄灯？",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1119,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 1032,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 3,
+          "ms": 910,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-joke",
+      "category": "no_tool",
+      "question": "讲个笑话吧。",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1241,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写笑话。我只能依据给定事实回答课程规划相关问题；如果你需要，我可以帮你核对上面的学期安排与学分是否匹配。"
+        },
+        {
+          "round": 2,
+          "ms": 1017,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写笑话。我只能依据给定事实回答课程规划相关问题；如果你需要，我可以帮你核对上面的学期安排与学分是否匹配。"
+        },
+        {
+          "round": 3,
+          "ms": 904,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写笑话。我只能依据给定事实回答课程规划相关问题；如果你需要，我可以帮你看第3—8学期的修读安排或学分缺口。"
+        }
+      ]
+    },
+    {
+      "id": "unknown-other-major",
+      "category": "no_tool",
+      "question": "隔壁计算机学院的培养方案是多少学分？",
+      "expectTools": [],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 776,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 681,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 3,
+          "ms": 601,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写。"
+        }
+      ]
+    },
+    {
+      "id": "turn-general-practice",
+      "category": "multi_turn",
+      "question": "那实践环节呢？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [
+        "16"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1655,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 2,
+          "text": "实践环节要求 18.0 学分，已修 2.0，还差 16.0 学分。培养方案原文只列出「实践环节最低 18 学分」及 PR101 程序设计实践（2.0 学分，必修，学期 2、3，先修 CS101），其余实践环节课程明细培养方案里没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 1691,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 2,
+          "text": "实践环节要求 18.0 学分，已修 2.0，还差 16.0 学分。培养方案原文只列出「实践环节最低 18 学分」及 PR101 程序设计实践（2.0 学分，必修，学期 2、3，先修 CS101），其余实践环节课程明细培养方案里没有写。"
+        },
+        {
+          "round": 3,
+          "ms": 1571,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 2,
+          "text": "实践环节要求 18.0 学分，已修 2.0，还差 16.0 学分。培养方案原文只列出「实践环节最低 18 学分」及 PR101 程序设计实践（2.0 学分，必修，学期 2、3，先修 CS101），其余实践环节课程明细培养方案里没有写。"
+        }
+      ]
+    },
+    {
+      "id": "turn-term1-term2",
+      "category": "multi_turn",
+      "question": "第二学期呢？",
+      "expectTools": [
+        "solve_plan"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1590,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写第二学期的完整课程安排。给定事实只列出了第3至第8学期的课程，以及部分课程的可修学期（如大学英语(一)在1、2学期，大学英语(二)在2、3学期，思想道德与法治在1、2学期），没有给出第二学期的完整课表。"
+        },
+        {
+          "round": 2,
+          "ms": 1611,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写第二学期完整的课程安排。原文片段只提到：EN101 大学英语(一) 可在学期1、2修读；EN102 大学英语(二) 可在学期2、3修读（先修EN101）；PL101 思想道德与法治 可在学期1、2修读。其余第二学期课程未给出。"
+        },
+        {
+          "round": 3,
+          "ms": 1284,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写第二学期的完整课程安排。给定事实只列出第3至第8学期的计划，以及 EN101、EN102、PL101 等单门课程的开设学期，无法据此确定第二学期全部课程。"
+        }
+      ]
+    },
+    {
+      "id": "turn-credits-semesters",
+      "category": "multi_turn",
+      "question": "那按这个排要几个学期？",
+      "expectTools": [
+        "solve_plan"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 818,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "按最近一次求解结果，最快需要 8 个学期修完，共修 56.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 823,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "按最近一次求解结果，最快需要 8 个学期修完，共修 56.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1175,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "按最近一次求解结果，最快需要 8 个学期修完，共修 56.0 学分。"
+        }
+      ]
+    },
+    {
+      "id": "turn-prereq-chain",
+      "category": "multi_turn",
+      "question": "那它的先修呢？",
       "expectTools": [
         "search_program"
       ],
       "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 923,
-      "engine": "llm:deepseek-chat",
-      "citations": 3,
-      "text": "操作系统（CS203）的先修课程是 CS201、CS202。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 925,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写数据结构（CS201）的先修课程。"
+        },
+        {
+          "round": 2,
+          "ms": 789,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写数据结构（CS201）的先修课程。"
+        },
+        {
+          "round": 3,
+          "ms": 1089,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写数据结构（CS201）的先修课程。"
+        }
+      ]
     },
     {
-      "id": "unknown-out-of-scope",
-      "question": "食堂几点开门？",
-      "expectTools": [],
+      "id": "turn-major-general",
+      "category": "multi_turn",
+      "question": "通识呢？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [
+        "12"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 786,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 1,
+          "text": "通识教育模块要求 28.0 学分，已修 16.0，还差 12.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 1014,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 1,
+          "text": "通识教育模块要求 28.0 学分，已修 16.0，还差 12.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1023,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 1,
+          "text": "通识教育模块要求 28.0 学分，已修 16.0，还差 12.0 学分。"
+        }
+      ]
+    },
+    {
+      "id": "turn-plan-risk",
+      "category": "multi_turn",
+      "question": "风险分呢？",
+      "expectTools": [
+        "solve_plan"
+      ],
       "expectFacts": [],
-      "tools": [],
-      "steps": [],
-      "ms": 990,
-      "engine": "llm:deepseek-chat",
-      "citations": 0,
-      "text": "培养方案里没有写。"
+      "runs": [
+        {
+          "round": 1,
+          "ms": 921,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写风险分。"
+        },
+        {
+          "round": 2,
+          "ms": 818,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写「风险分」这项指标，也没有相关计算规则，无法给出风险分。"
+        },
+        {
+          "round": 3,
+          "ms": 588,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "培养方案里没有写风险分。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-empty-search",
+      "category": "anomaly",
+      "question": "培养方案里写了游泳课吗？",
+      "expectTools": [
+        "search_program"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 808,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 2,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 489,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 2,
+          "text": "培养方案里没有写。"
+        },
+        {
+          "round": 3,
+          "ms": 454,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 2,
+          "text": "培养方案里没有写。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-long-question",
+      "category": "anomaly",
+      "question": "我是软件工程专业大三的学生，之前转过专业，成绩单上有几门课是别的专业的，我想知道按照现在这份培养方案我到底还差多少学分才能毕业，另外每学期最多能修多少学分，还有通识教育到底要修满多少分。",
+      "expectTools": [
+        "get_progress",
+        "search_program"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1713,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "按你提供的信息：毕业总学分要求 117.0，已修 55.0，还差 62.0 学分。每学期最多修读 25 学分。通识教育最低要求 28.0 学分，你已修 16.0，还差 12.0。转专业前课程能否计入本专业学分，培养方案里没有写。"
+        },
+        {
+          "round": 2,
+          "ms": 1656,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "按你提供的信息：毕业总学分要求 117.0，已修 55.0，还差 62.0 学分。每学期最多修读 25 学分。通识教育最低要求 28.0 学分，你已修 16.0，还差 12.0。转专业课程能否计入对应模块，培养方案里没有写，需按学校认定结果为准。"
+        },
+        {
+          "round": 3,
+          "ms": 1391,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "按你提供的信息：毕业总学分要求 117.0，已修 55.0，还差 62.0 学分。每学期最多修读 25 学分。通识教育最低要求 28.0 学分，你已修 16.0，还差 12.0。转专业课程能否计入对应模块，培养方案里没有写，需按学校认定结果为准。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-credit-edge",
+      "category": "anomaly",
+      "question": "我一学期能修 40 学分吗？",
+      "expectTools": [
+        "search_program"
+      ],
+      "expectFacts": [
+        "25"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1189,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写每学期最高可修学分，因此无法确认能否一学期修40学分。按最近一次求解结果，最快8学期修完、共56.0学分，平均每学期约7学分，未出现单学期40学分的安排。"
+        },
+        {
+          "round": 2,
+          "ms": 1281,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写每学期最高可修学分，因此无法判断能否一学期修 40 学分。按最近一次求解结果，最快 8 学期修完，共 56.0 学分，各学期列出的课程也未达到 40 学分。建议按培养方案和学校选课规定确认学期学分上限。"
+        },
+        {
+          "round": 3,
+          "ms": 1532,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写每学期最高可修学分，因此无法判断能否一学期修40学分。按最近一次求解结果，最快8学期修完、共56.0学分，各学期安排也未达到40学分。建议按培养方案和学校选课规定确认学期学分上限。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-vague",
+      "category": "anomaly",
+      "question": "排课",
+      "expectTools": [
+        "get_progress",
+        "solve_plan"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1790,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "根据最近一次求解结果，最快 8 学期修完，共 56.0 学分。排课如下：学期：艺术鉴赏、体育(三)、大学物理(下)、马克思主义基本原理学期：操作系统、计算机网络、数据库系统、体育(四)、毛泽东思想和中国特色社会主义理论体系概论 第5学期：软件工程、编译原理、人工智能导论、创新创业基础- 第6学期：分布式系统、机器学习、软件工程课程设计7学期：生产实习8学期：毕业设计：该方案共 56.0 学分，而你还差 62.0 学分，两者不一致；培养方案里没有写其余学分的具体安排。"
+        },
+        {
+          "round": 2,
+          "ms": 2149,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "根据最近一次求解结果，最快 8 学期修完，共 56.0 学分。排课如下：学期：艺术鉴赏、体育(三)、大学物理(下)、马克思主义基本原理学期：操作系统、计算机网络、数据库系统、体育(四)、毛泽东思想和中国特色社会主义理论体系概论 第5学期：软件工程、编译原理、人工智能导论、创新创业基础- 第6学期：分布式系统、机器学习、软件工程课程设计7学期：生产实习8学期：毕业设计：该方案共 56.0 学分，而你还差 62.0 学分，两者不一致；培养方案里没有写其余学分的具体安排。"
+        },
+        {
+          "round": 3,
+          "ms": 2124,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "根据最近一次求解结果，最快 8 学期修完，共 56.0 学分。排课如下：学期：艺术鉴赏、体育(三)、大学物理(下)、马克思主义基本原理学期：操作系统、计算机网络、数据库系统、体育(四)、毛泽东思想和中国特色社会主义理论体系概论 第5学期：软件工程、编译原理、人工智能导论、创新创业基础- 第6学期：分布式系统、机器学习、软件工程课程设计7学期：生产实习8学期：毕业设计：该方案共 56.0 学分，而你还差 62.0 学分，两者不一致；培养方案里没有写其余学分的具体安排。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-typo",
+      "category": "anomaly",
+      "question": "我还差多小分学才能毕业？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1600,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 1,
+          "text": "你目前还差 **62.0 学分**才能毕业（毕业要求 117.0，已修 55.0）。，还差： 通识教育：12.0 数学与自然科学：3.0心：25.0节：16.0近一次求解结果显示最快 8 学期修完，共 56.0 学分；这与“还差 62.0”不一致，培养方案里没有写原因。"
+        },
+        {
+          "round": 2,
+          "ms": 1647,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 1,
+          "text": "你目前还差 **62.0 学分**才能毕业（毕业要求 117.0，已修 55.0）。，还差： 通识教育：12.0 数学与自然科学：3.0心：25.0节：16.0近一次求解结果显示最快 8 学期修完，共 56.0 学分；这与“还差 62.0”存在差异，培养方案里没有说明原因。"
+        },
+        {
+          "round": 3,
+          "ms": 1478,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 1,
+          "text": "你目前还差 **62.0 学分**才能毕业（毕业要求 117.0，已修 55.0）。，还差： 通识教育：12.0 数学与自然科学：3.0心：25.0节：16.0近一次求解结果显示最快 8 学期修完，共 56.0 学分；这与“还差 62.0”不一致，培养方案里没有写原因。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-english",
+      "category": "anomaly",
+      "question": "How many credits do I still need to graduate?",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 851,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "你还需要修 **62.0 学分**才能毕业（毕业要求总学分 117.0，已修 55.0）。"
+        },
+        {
+          "round": 2,
+          "ms": 1169,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "你还需要修 62.0 学分才能毕业（毕业要求总学分 117.0，已修 55.0）。"
+        },
+        {
+          "round": 3,
+          "ms": 435,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 0,
+          "text": "你还需要修 62.0 学分才能毕业。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-mixed-scope",
+      "category": "anomaly",
+      "question": "学费多少，顺便说下我还差多少学分？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1077,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写学费标准，无法回答。：毕业要求总学分117.0，已修55.0，还差62.0。分模块看：通识教育还差12.0，数学与自然科学还差3.0，专业核心还差25.0，实践环节还差16.0。"
+        },
+        {
+          "round": 2,
+          "ms": 1048,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写学费标准，无法回答。：毕业要求总学分117.0，已修55.0，还差62.0。分模块看：通识教育还差12.0，数学与自然科学还差3.0，专业核心还差25.0，实践环节还差16.0。"
+        },
+        {
+          "round": 3,
+          "ms": 1368,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "培养方案里没有写学费标准，无法回答。：毕业要求总学分117.0，已修55.0，还差62.0。分模块看：通识教育还差12.0，数学与自然科学还差3.0，专业核心还差25.0，实践环节还差16.0。"
+        }
+      ]
+    },
+    {
+      "id": "anomaly-repeat-question",
+      "category": "anomaly",
+      "question": "我还差多少学分？我还差多少学分？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1233,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你目前还差 **62.0 学分**（毕业要求 117.0，已修 55.0）。块看：通识教育：还差 12.0自然科学：还差 3.0- 专业核心：还差 25.0践环节：还差 16.0成必修课 14 门。最近一次求解显示最快 8 学期修完，共 56.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 1500,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你毕业还差 **62.0 学分**（总要求 117.0，已修 55.0）。看：识教育：还差 12.0- 数学与自然科学：还差 3.0 专业核心：还差 25.0环节：还差 16.0另外，未完成必修课 14 门；最近一次求解结果为最快 8 学期修完，共 56.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1445,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "你毕业还差 **62.0 学分**（总要求 117.0，已修 55.0）。看：识教育：还差 12.0- 数学与自然科学：还差 3.0 专业核心：还差 25.0环节：还差 16.0另外，未完成必修课 14 门；最近一次求解结果为最快 8 学期修完，共 56.0 学分。"
+        }
+      ]
+    },
+    {
+      "id": "num-remaining",
+      "category": "numeric",
+      "question": "距离毕业还差几个学分？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [
+        "62"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 966,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "距离毕业还差 **62.0 学分**（总要求 117.0，已修 55.0）。"
+        },
+        {
+          "round": 2,
+          "ms": 504,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "距离毕业还差 **62.0 学分**（总学分 117.0，已修 55.0）。"
+        },
+        {
+          "round": 3,
+          "ms": 994,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "距离毕业还差 **62.0 学分**（总要求 117.0，已修 55.0）。"
+        }
+      ]
+    },
+    {
+      "id": "num-earned",
+      "category": "numeric",
+      "question": "已修学分是多少？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [
+        "55"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 859,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "已修学分是 55.0。"
+        },
+        {
+          "round": 2,
+          "ms": 681,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "已修学分是 55.0。"
+        },
+        {
+          "round": 3,
+          "ms": 915,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "已修学分是 55.0。"
+        }
+      ]
+    },
+    {
+      "id": "num-total",
+      "category": "numeric",
+      "question": "毕业学分要求。",
+      "expectTools": [
+        "search_program",
+        "get_progress"
+      ],
+      "expectFacts": [
+        "117"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1958,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "软件工程毕业要求总学分为 **117.0 学分**。你已修 **55.0 学分**，还差 **62.0 学分**；另有 **14 门必修课**未完成。模块看： 通识教育：要求 28.0，已修 16.0，还差 12.0- 数学与自然科学：要求 25.0，已修 22.0，还差 3.0业核心：要求 40.0，已修 15.0，还差 25.0实践环节：要求 18.0，已修 2.0，还差 16.0近一次求解显示最快 **8 学期**修完，共 **56.0 学分**。"
+        },
+        {
+          "round": 2,
+          "ms": 1833,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "软件工程毕业要求总学分为 **117.0 学分**。你已修 **55.0 学分**，还差 **62.0 学分**；另有 **14 门必修课**未完成。模块看： 通识教育：要求 28.0，已修 16.0，还差 12.0- 数学与自然科学：要求 25.0，已修 22.0，还差 3.0业核心：要求 40.0，已修 15.0，还差 25.0实践环节：要求 18.0，已修 2.0，还差 16.0近一次求解结果为最快 **8 学期**修完，共 **56.0 学分**。"
+        },
+        {
+          "round": 3,
+          "ms": 2146,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "软件工程毕业要求总学分为 **117.0 学分**。你已修 **55.0 学分**，还差 **62.0 学分**；其中未完成必修课 **14 门**。模块要求与差额：识教育：要求 28.0，已修 16.0，还差 12.0数学与自然科学：要求 25.0，已修 22.0，还差 3.0心：要求 40.0，已修 15.0，还差 25.0环节：要求 18.0，已修 2.0，还差 16.0次求解结果为最快 **8 学期**修完，共 **56.0 学分**。"
+        }
+      ]
+    },
+    {
+      "id": "num-general-required",
+      "category": "numeric",
+      "question": "通识教育要求多少学分？",
+      "expectTools": [
+        "search_program"
+      ],
+      "expectFacts": [
+        "28"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 1010,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育要求最低 28.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 719,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育要求最低 28.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 1189,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "通识教育要求最低 28.0 学分。"
+        }
+      ]
+    },
+    {
+      "id": "num-math-remaining",
+      "category": "numeric",
+      "question": "数学与自然科学还差多少学分？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [
+        "3"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 858,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "数学与自然科学还差 3.0 学分（要求 25.0，已修 22.0）。"
+        },
+        {
+          "round": 2,
+          "ms": 927,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "数学与自然科学还差 3.0 学分（要求 25.0，已修 22.0）。"
+        },
+        {
+          "round": 3,
+          "ms": 929,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "数学与自然科学还差 3.0 学分（要求 25.0，已修 22.0）。"
+        }
+      ]
+    },
+    {
+      "id": "num-practice-required",
+      "category": "numeric",
+      "question": "实践环节最低要求多少学分？",
+      "expectTools": [
+        "search_program"
+      ],
+      "expectFacts": [
+        "18"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 724,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "实践环节最低要求 18.0 学分。"
+        },
+        {
+          "round": 2,
+          "ms": 664,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "实践环节最低要求 18.0 学分。"
+        },
+        {
+          "round": 3,
+          "ms": 576,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "实践环节最低要求 18.0 学分。"
+        }
+      ]
+    },
+    {
+      "id": "num-courses-left",
+      "category": "numeric",
+      "question": "还有多少门必修课没修？",
+      "expectTools": [
+        "get_progress"
+      ],
+      "expectFacts": [
+        "14"
+      ],
+      "runs": [
+        {
+          "round": 1,
+          "ms": 779,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "根据你提供的信息，未完成必修课为 **14 门**。"
+        },
+        {
+          "round": 2,
+          "ms": 1040,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "还有 14 门必修课没修。"
+        },
+        {
+          "round": 3,
+          "ms": 681,
+          "engine": "llm:deepseek-chat",
+          "tools": [],
+          "steps": [],
+          "citations": 3,
+          "text": "还有 14 门必修课没修。"
+        }
+      ]
     }
   ]
 }
